@@ -1,60 +1,51 @@
 <template>
-  <!--所有的item都展示同一个图片, 同一个文字-->
-  <div class="tab-bar-item" @click="itemClick">
-    <div v-if="!isActive"><slot name="item-icon"></slot></div>
-    <div v-else><slot name="item-icon-active"></slot></div>
-    <div :style="activeStyle"><slot name="item-text"></slot></div>
+  <div id="tab-bar-item" @click="itemClick">
+    <div class="item-icon" v-show="!isActive"><slot name="icon"></slot></div>
+    <div class="item-active-icon" v-show="isActive"><slot name="active-icon"></slot></div>
+    <div class="item-text" :style="activeStyle"><slot name="text"></slot></div>
   </div>
 </template>
 
 <script>
-  export default {
-    name: "TabBarItem",
+	export default {
+		name: "TabBarItem",
     props: {
-      path: String,
-      activeColor: {
-        type: String,
-        default: 'red'
-      }
-    },
-    data() {
-      return {
-        // isActive: true
+			link: {
+				type: String,
+        required: true
       }
     },
     computed: {
-      isActive() {
-        // /home -> item1(/home) = true
-        // /home -> item1(/category) = false
-        // /home -> item1(/cart) = true
-        // /home -> item1(/profile) = true
-        return this.$route.path.indexOf(this.path) !== -1
+			isActive() {
+				return this.$route.path.indexOf(this.link) !== -1
       },
       activeStyle() {
-        return this.isActive ? {color: this.activeColor} : {}
+				return this.isActive ? {'color': 'red'} : {}
       }
     },
     methods: {
-      itemClick() {
-        this.$router.replace(this.path)
+			itemClick() {
+				this.$router.replace(this.link)
       }
     }
-  }
+	}
 </script>
 
 <style scoped>
-  .tab-bar-item {
+  #tab-bar-item {
     flex: 1;
-    text-align: center;
-    height: 49px;
-    font-size: 14px;
   }
 
-  .tab-bar-item img {
+  .item-icon img, .item-active-icon img {
     width: 24px;
     height: 24px;
-    margin-top: 3px;
+    margin-top: 5px;
     vertical-align: middle;
-    margin-bottom: 2px;
+  }
+
+  .item-text {
+    font-size: 12px;
+    margin-top: 3px;
+    color: #333;
   }
 </style>

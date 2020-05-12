@@ -1,6 +1,5 @@
 @import "./normalize.css";
 
-/*:root -> 获取根元素html*/
 :root {
   --color-text: #666;
   --color-high-text: #ff5777;
@@ -24,7 +23,6 @@ body {
   -webkit-tap-highlight-color: transparent; /* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 */
   background: var(--color-background);
   color: var(--color-text);
-  /* rem vw/vh */
   width: 100vw;
 }
 
@@ -45,6 +43,17 @@ a {
 
 .clear-fix {
   zoom: 1;
+}
+
+.arrow-right {
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+  width: 9px;
+  height: 9px;
+  background-color: transparent;
+  transform: rotate(135deg);
+  display: inline-block;
+  margin-left: .1rem;
 }
 
 .left {

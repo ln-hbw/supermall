@@ -1,7 +1,7 @@
 # 手机端电子商城（VUE）项目实践
 ---
 
-** vue-cli、vuex、router、store **
+**vue-cli、vuex、router、store**
 ## 项目运行截图
 1. 项目首页截图
 ![首页截图1](./src/imgtest/hometop.png)

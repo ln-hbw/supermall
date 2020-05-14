@@ -5,7 +5,7 @@
 
 **vue-cli、vuex、router、store**
 
-==访问项目地址：www.emall.hbw1224.top==
+访问项目地址：www.emall.hbw1224.top
 
 
 ## 项目运行截图
